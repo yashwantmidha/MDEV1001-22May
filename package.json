@@ -18,5 +18,6 @@
   "homepage": "https://github.com/yashwantmidha/MDEV1001-22May#readme",
   "devDependencies": {
     "sqlite3": "^4.0.8"
-  }
+  },
+  "dependencies": {}
 }
