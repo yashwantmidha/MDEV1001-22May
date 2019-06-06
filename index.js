@@ -21,7 +21,10 @@ db.serialize(function () {
     db.run("INSERT INTO Department VALUES('Music' , 'Packard', 80000)");
     db.run("INSERT INTO Department VALUES('Physics' , 'Watson', 70000)");
 
-    
+    db.each("SELECT room_number FROM Department where capacity < 0", function (err, row) {
+        console.log('');
+        console.log('**Room number and building name for those rooms whose capacity is greater than 50**');
+    });
     //QUERY 2 room number and building name for those rooms whose capacity is greater than 50
     db.each("SELECT building,room_number FROM Classroom where capacity>50", function (err, row) {
         console.log('Building : ' + row.building + '  Room No. : ' + row.room_number);
@@ -30,6 +33,7 @@ db.serialize(function () {
     // JUST FOR NEXT LINE COZ CAPACITY CAN NOT BE MINUS
     db.each("SELECT room_number FROM Department where capacity < 0", function (err, row) {
         console.log('');
+        console.log('**Names of those departments whose budgets are greater than $85,000**');
     });
 
     // QUERY 3 names of those departments whose budgets are greater than $85,000
@@ -40,6 +44,7 @@ db.serialize(function () {
     // JUST FOR NEXT LINE COZ CAPACITY CAN NOT BE MINUS
     db.each("SELECT room_number FROM Department where capacity < 0", function (err, row) {
         console.log('');
+        console.log('**For each department, print the total capacity available.**');
     });
   //QUERY 4 For each department, print the total capacity available.
     let dept_list = {} //defining an empty list
